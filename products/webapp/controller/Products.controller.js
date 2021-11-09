@@ -1,9 +1,12 @@
 sap.ui.define(
-  ["./BaseController", "sap/m/MessageToast", "sap/ui/model/Sorter"],
-  /**
-   * @param {typeof sap.ui.core.mvc.Controller} Controller
-   */
-  function (BaseController, MessageToast, Sorter) {
+  [
+    "./BaseController",
+    "sap/m/MessageToast",
+    "sap/ui/model/Sorter",
+    "sap/ui/model/Filter",
+    "sap/ui/model/FilterOperator",
+  ],
+  function (BaseController, MessageToast, Sorter, Filter, FilterOperator) {
     "use strict";
 
     return BaseController.extend("com.sodogan.products.controller.Products", {
@@ -21,7 +24,24 @@ sap.ui.define(
         oListBinding.sort(new Sorter("Price", false));
         window.oListBinding = oListBinding;
       },
-      onRefresh: function () {},
+      onRefresh: function () {
+        //Need to remove the sort
+        var oListBinding = this.byId("productList").getBinding("items");
+        oListBinding.sort();
+      },
+      onSearch: function (oEvent) {
+        //get the search field
+        debugger;
+        var listBinding = this.byId("productList").getBinding("items");
+        var sQuery = oEvent.mParameters.query;
+        var filterList = [];
+
+        if (sQuery) {
+          filterList.push(new Filter("Name", FilterOperator.Contains, sQuery));
+        }
+
+        listBinding.filter(filterList);
+      },
       onListItemPress: function (oEvent) {
         // var that = this;
         this._eventSource = oEvent.getSource();
@@ -31,13 +51,14 @@ sap.ui.define(
           console.log(_source);
           MessageToast.show("Button is pressed");
         }, 5000);
-      */
-        //this.promisify().then((msg) => MessageToast.show(msg));
+      
+        /*this.promisify().then((msg) => MessageToast.show(msg));
         this.promisify().then(function (source) {
-          // var object = source.getBindingContext().getObject();
-          //MessageToast.show(
-          //  `ID:${object.ID} with Name: ${object.Name} selected`);
+           var object = source.getBindingContext().getObject();
+          MessageToast.show(
+            `ID:${object.ID} with Name: ${object.Name} selected`);
         });
+        */
       },
 
       promisify: function () {
