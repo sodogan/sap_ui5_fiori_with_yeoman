@@ -4,8 +4,9 @@ sap.ui.define(
     "sap/ui/core/UIComponent",
     "com/sodogan/products/formatter/util",
   ],
-  (Controller, UIComponent, util) => {
-    const _controller = Controller.extend(
+  function (Controller, UIComponent, util) {
+    "use strict";
+    var _controller = Controller.extend(
       "com.sodogan.products.controller.BaseController",
       {
         formatter: util,
