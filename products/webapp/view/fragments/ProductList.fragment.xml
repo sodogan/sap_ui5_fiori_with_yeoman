@@ -1,0 +1,20 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<List id="productList"  headerText="Demo API" items="{ path: '/Products', sorter: { path: 'Name', ascending: true } }">
+	      <headerToolbar>
+			    <core:Fragment fragmentName="com.sodogan.products.view.fragments.ProductListActions" type="XML"/>
+			</headerToolbar>
+	          <ObjectListItem
+					title="{Name}"
+					type="Active"
+					press="onListItemPress"
+					number="{
+						parts:[{path:'Price'},{path:'CurrencyCode'}],
+						type: 'sap.ui.model.type.Currency',
+						formatOptions: {showMeasure: false}
+					}"
+					numberUnit="EURO"
+					numberState = "{path: 'DiscontinuedDate', formatter: 'com.sodogan.products.formatter.util.getStatus'}"
+					>
+				</ObjectListItem>
+		</List>
+</core:FragmentDefinition>

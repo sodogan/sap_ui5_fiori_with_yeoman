@@ -1,0 +1,11 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+			<OverflowToolbar>
+				<Title text="{i18n>listTitle}"/>
+				<ToolbarSpacer/>
+				<Button icon="sap-icon://refresh" tooltip="{i18n>refreshButtonTooltip}" press=".onRefresh"/>
+				<ToolbarSeparator />
+				<Button icon="sap-icon://sort" tooltip="{i18n>sortButtonTooltip}" press=".onSortProductByPrice"/>
+				<ToolbarSeparator/>
+				<SearchField width="18rem" placeholder="{i18n>searchPlaceholder}" search=".onSearch"/>
+			</OverflowToolbar>
+</core:FragmentDefinition>

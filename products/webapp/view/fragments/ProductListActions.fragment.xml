@@ -1,0 +1,8 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<OverflowToolbar>
+		<Button icon="sap-icon://add" tooltip="{i18n>refreshButtonTooltip}" press=".onNewProduct"/>
+		<ToolbarSeparator />
+		<Button icon="sap-icon://delete" tooltip="{i18n>sortButtonTooltip}" press=".onDeleteProduct"/>
+		<ToolbarSeparator/>
+	</OverflowToolbar>
+</core:FragmentDefinition>
