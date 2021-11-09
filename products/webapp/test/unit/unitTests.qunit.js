@@ -2,11 +2,9 @@
 QUnit.config.autostart = false;
 
 sap.ui.getCore().attachInit(function () {
-	"use strict";
+  "use strict";
 
-	sap.ui.require([
-		"comsodogan./products/test/unit/AllTests"
-	], function () {
-		QUnit.start();
-	});
+  sap.ui.require(["com/sodogan/products/test/unit/AllTests"], function () {
+    QUnit.start();
+  });
 });
