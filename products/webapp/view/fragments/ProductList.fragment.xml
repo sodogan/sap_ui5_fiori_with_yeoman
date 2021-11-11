@@ -15,6 +15,11 @@
 					numberUnit="EURO"
 					numberState = "{path: 'DiscontinuedDate', formatter: 'com.sodogan.products.formatter.util.getStatus'}"
 					>
+				<ObjectAttribute text="{Description}" />
+			    <ObjectAttribute text="{path: 'DiscontinuedDate', type: 'sap.ui.model.type.DateTime',formatOptions: {style: 'medium'}}" />
+				<markers>
+				<ObjectMarker type="{path: 'DiscontinuedDate', formatter: 'com.sodogan.products.formatter.util.getFlagged'}"/>
+			    </markers>
 				</ObjectListItem>
 		</List>
 </core:FragmentDefinition>

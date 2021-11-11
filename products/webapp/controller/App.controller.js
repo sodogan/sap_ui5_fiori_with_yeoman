@@ -3,7 +3,9 @@ sap.ui.define(["./BaseController"], function (BaseController) {
   var _controller = BaseController.extend(
     "com.sodogan.products.controller.App",
     {
-      onInit: function () {},
+      onInit: function () {
+        debugger;
+      },
     }
   );
   return _controller;

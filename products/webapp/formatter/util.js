@@ -9,6 +9,12 @@ sap.ui.define(
         }
         return ValueState.Information;
       },
+      getFlagged: function (disContinueDate) {
+        if (disContinueDate) {
+          return "Flagged";
+        }
+        return "Favorite";
+      },
       getMethods: function () {
         return Object.keys(this);
       },

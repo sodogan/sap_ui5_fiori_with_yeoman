@@ -1,0 +1,49 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:core="sap.ui.core">
+	<Dialog id="createProductDialog" title="Please enter data" contentWidth="30%">
+        <content>
+	<VBox class="sapUiSmallMargin">
+		<f:SimpleForm id="SimpleFormDisplayColumn_oneGroup"
+			editable="true"
+			layout="ColumnLayout"
+			title="New Product" >
+			<f:content>
+
+	        	 <Label text="Product ID" labelFor="inputId"/>
+                <Input id="inputId" type="Number" placeholder="999" />
+
+				<Label text="Name" labelFor="inputName" />
+				<Input id="inputName" placeholder= 'Name' />
+
+				<Label text="Description" labelFor="inputDescription"/>
+				<Input id="inputDescription" placeholder="Description" />
+				
+				<Label text="Release Date" labelFor="dtpReleaseDate"/>
+				<DateTimePicker id="dtpReleaseDate" 
+                        placeholder="Release Date ..."/>
+				
+				<Label text="Discontinue Date" labelFor="dtpDiscontinueDate"/>
+				<DateTimePicker id="dtpDiscontinueDate" 
+                        placeholder="Discontinue Date ..."/>
+				
+				<Label text="Rating"  labelFor="inputRating" />
+				<Input id="inputRating" type= 'Number' placeholder="4/5" />
+				
+				<Label text="Price"  labelFor="inputPrice" />
+				<Input id="inputPrice" type= 'Number' placeholder="0.00" />
+			</f:content>
+		</f:SimpleForm>
+	</VBox>
+   </content>
+        <beginButton>
+            <Button id="addProductSubmitButton" text="Submit" press=".onSubmitNewProduct"/>
+        </beginButton>
+        <endButton>
+            <Button id="addProductCancelButton" text="Cancel" press=".onCancelCreateProduct"/>
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>
+

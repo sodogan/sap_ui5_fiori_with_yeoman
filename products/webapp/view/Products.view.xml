@@ -4,6 +4,7 @@
     xmlns:mvc="sap.ui.core.mvc"
 	displayBlock="true"
     xmlns="sap.m"
+	xmlns:f="sap.f"
 >
 	<Page id="page" title="{i18n>title}"
 		class="sapUiContentPadding sapUiResponsivePadding--header sapUiResponsivePadding--subHeader sapUiResponsivePadding--content sapUiResponsivePadding--footer"
@@ -12,17 +13,27 @@
 			<Button icon="sap-icon://action" tooltip="Share" />
 		</headerContent>
 		<subHeader>
-      	<core:Fragment fragmentName="com.sodogan.products.view.fragments.ProductListHeader" type="XML"/>
-		</subHeader>
+    	</subHeader>
 		
 		<content>
+           <f:DynamicPage>
+						<f:header>
+							<f:DynamicPageHeader pinnable="true">
+	                      	<core:Fragment fragmentName="com.sodogan.products.view.fragments.ProductListHeader" type="XML"/>
+							</f:DynamicPageHeader>
+						</f:header>
+						<f:content>
+
 		    <core:Fragment fragmentName="com.sodogan.products.view.fragments.ProductList" type="XML"/>
+			</f:content>
+		</f:DynamicPage>
 		</content>
 
-	<footer>
+	      <footer>
 			<OverflowToolbar>
+     			<core:Icon src="sap-icon://lightbulb"/>
 				<ToolbarSpacer/>
-				<Label text="Copyright@" icon="sap-icon://bulb" />
+				<Label text="Copyright@" />
 			</OverflowToolbar>
 		</footer>
 

@@ -1,8 +1,14 @@
 <core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
 	<OverflowToolbar>
-		<Button icon="sap-icon://add" tooltip="{i18n>refreshButtonTooltip}" press=".onNewProduct"/>
+		<Button icon="sap-icon://add" tooltip="{i18n>newButtonTooltip}" press=".onNewProduct"/>
 		<ToolbarSeparator />
-		<Button icon="sap-icon://delete" tooltip="{i18n>sortButtonTooltip}" press=".onDeleteProduct"/>
+		<Button icon="sap-icon://delete" tooltip="{i18n>deleteButtonTooltip}" press=".onDeleteProduct"/>
+		<ToolbarSeparator />
+			<Switch id='oDeleteOnOff' change = '.onChangeMode' type="AcceptReject" state="true" customTextOn="Edit" customTextOff="Display" >
+			<layoutData>
+				<FlexItemData growFactor="1" />
+			</layoutData>
+		</Switch>
 		<ToolbarSeparator/>
 	</OverflowToolbar>
 </core:FragmentDefinition>
