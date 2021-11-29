@@ -4,10 +4,7 @@ sap.ui.define(
     "use strict";
     var util = {
       getStatus: function (disContinueDate) {
-        if (disContinueDate) {
-          return ValueState.Warning;
-        }
-        return ValueState.Information;
+        return disContinueDate ? ValueState.Warning : ValueState.Information;
       },
       getFlagged: function (disContinueDate) {
         if (disContinueDate) {
@@ -15,7 +12,11 @@ sap.ui.define(
         }
         return "Favorite";
       },
-      getMethods: function () {
+      log: function (message) {
+        console.log(message);
+      },
+      callLog: function () {
+        this.log("logme");
         return Object.keys(this);
       },
     };

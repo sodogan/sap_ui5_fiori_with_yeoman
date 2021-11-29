@@ -2,15 +2,17 @@ sap.ui.define(
   [
     "sap/ui/core/mvc/Controller",
     "sap/ui/core/UIComponent",
-    "com/sodogan/products/formatter/util",
     "sap/ui/core/Fragment",
+    "com/sodogan/products/formatter/formatter",
+    "com/sodogan/products/formatter/Person",
   ],
-  function (Controller, UIComponent, util, Fragment) {
+  function (Controller, UIComponent, Fragment, formatter, Person) {
     "use strict";
     var _controller = Controller.extend(
       "com.sodogan.products.controller.BaseController",
       {
-        formatter: util,
+        formatter: formatter,
+        Person: Person,
         onInit: function () {
           debugger;
           this._view = this.getView();

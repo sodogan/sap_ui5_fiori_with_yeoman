@@ -1,1 +1,5 @@
-sap.ui.define(["./controller/Products.controller"]);
+sap.ui.define([
+  "./controller/Products.controller",
+  "./formatter/formatter",
+  "./formatter/person",
+]);
