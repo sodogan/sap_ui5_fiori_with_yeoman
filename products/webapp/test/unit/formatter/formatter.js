@@ -5,19 +5,35 @@ sap.ui.define(
   function (formatter, ValueState) {
     "use strict";
 
-    QUnit.module("Qunit test types ", {
-      beforeEach: function () {
-        this._info = ValueState.Information;
-      },
-      afterEach: function () {
-        this._info = null;
-      },
+    QUnit.module("Number unit");
+    function numberUnitValueTestCase(assert, sValue, fExpected) {
+      // Act
+      var fActual = formatter.numberUnit(sValue);
+
+      // Assert
+      assert.strictEqual(fActual, fExpected, "The rounding was correct");
+    }
+
+    QUnit.test("Should round down a 3 digit number", function (assert) {
+      numberUnitValueTestCase.call(this, assert, "3.123", "3.12");
     });
 
-    QUnit.test("check information", function (assert) {
-      assert.ok(this._info, "information should be correctly set");
-      assert.strictEqual(this._info, "Information", "must be equal");
+    QUnit.test("Should round up a 3 digit number", function (assert) {
+      numberUnitValueTestCase.call(this, assert, "3.128", "3.13");
     });
+
+    QUnit.test("Should round a negative number", function (assert) {
+      numberUnitValueTestCase.call(this, assert, "-3", "-3.00");
+    });
+
+    QUnit.test("Should round an empty string", function (assert) {
+      numberUnitValueTestCase.call(this, assert, "", "");
+    });
+
+    QUnit.test("Should round a zero", function (assert) {
+      numberUnitValueTestCase.call(this, assert, "0", "0.00");
+    });
+
     /* New Module set up!
      */
     QUnit.module("Testing the getStatus", {

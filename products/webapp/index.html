@@ -15,6 +15,12 @@
 			data-sap-ui-preload="async"
             data-sap-ui-frameOptions="trusted"
         ></script>
+        <script>
+            sap.ui.getCore().attachInit(function () {
+                
+                alert("UI5 is ready");
+            });
+         </script>
     </head>
     <body class="sapUiBody">
         <div
